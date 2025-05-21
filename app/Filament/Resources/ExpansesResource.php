@@ -61,6 +61,7 @@ class ExpansesResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->defaultGroup('date')
             ->columns([
                TextColumn::make('date')->label('Pay Date')->date('d'),
                TextColumn::make('states.item')->label('Pay To'),

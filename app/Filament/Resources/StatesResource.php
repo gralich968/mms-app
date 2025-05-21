@@ -46,10 +46,11 @@ class StatesResource extends Resource
     {
         return $table
             ->columns([
+               TextColumn::make('##')->rowIndex(),
                TextColumn::make('date')->date('d')->label('Collection Day')->sortable(),
                TextColumn::make('item'),
                MoneyColumn::make('price')->currency('GBP')->locale('en_GB')->label('Price In'),
-               TextColumn::make('created_at')->date('d-m-Y')->label('recording date'),
+               TextColumn::make('created_at')->date('d-m-Y')->label('recording date')->toggleable(isToggledHiddenByDefault: true),
                MoneyColumn::make('price')->summarize(Sum::make()->money('GBP', divideBy: 100)->label('TOTAL')),
 
             ])

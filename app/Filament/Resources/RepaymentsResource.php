@@ -43,6 +43,7 @@ class RepaymentsResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->defaultGroup('name')
             ->columns([
                 TextColumn::make('date')->date('d-m-Y')->label('Date of Repayment'),
                 TextColumn::make('name')->searchable(),
